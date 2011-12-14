@@ -2,22 +2,50 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>sharepast</groupId>
-    <artifactId>sp-parent-pom</artifactId>
-    <version>1-SNAPSHOT</version>
-  </parent>
-
-  <artifactId>sp-geoip</artifactId>
+  <groupId>kp.common</groupId>
+  <artifactId>geoip</artifactId>
   <version>1.0</version>
-  <name>Geoip module</name>
+  <name>common-geoip</name>
   <description>geoip database</description>
 
+  <properties>
+
+    <!-- ========================== -->
+    <!-- now - build configuration  -->
+    <!-- ========================== -->
+
+    <nexus.url>http://localhost:8081/nexus/content/repositories</nexus.url>
+
+    <!-- distribution management  -->
+    <release.repo.id>app.releases.http</release.repo.id>
+    <release.repo.url>${nexus.url}/releases</release.repo.url>
+
+    <snapshot.repo.id>app.snapshots.http</snapshot.repo.id>
+    <snapshot.repo.url>${nexus.url}/snapshots</snapshot.repo.url>
+
+    <!-- ========================== -->
+
+   </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>${release.repo.id}</id>
+            <name>Releases Repository</name>
+            <url>${release.repo.url}</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>${snapshot.repo.id}</id>
+            <name>Snapshots Repository</name>
+            <url>${snapshot.repo.url}</url>
+            <uniqueVersion>true</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+
   <scm>
-      <connection>scm:svn:https://pl3.projectlocker.com/kpelykh/memoly/svn/modules/sp-geoip</connection>
-      <developerConnection>scm:svn:https://pl3.projectlocker.com/kpelykh/memoly/svn/modules/sp-geoip
-      </developerConnection>
-      <url>https://pl3.projectlocker.com/kpelykh/memoly/svn/modules/sp-geoip</url>
+      <connection>scm:git:git@github.com:kpelykh/common-modules.git</connection>
+      <developerConnection>scm:git:git@github.com:kpelykh/common-modules.git</developerConnection>
+      <url>scm:git:git@github.com:kpelykh/common-modules.git</url>
   </scm>
 
 </project>
